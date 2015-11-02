@@ -18,6 +18,7 @@
 		FAA6E6111BE7EE9B000ADB8A /* Lighthouse-in-Field.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAA6E6101BE7EE9B000ADB8A /* Lighthouse-in-Field.jpg */; };
 		FAA6E6131BE7EEC0000ADB8A /* Lighthouse-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAA6E6121BE7EEC0000ADB8A /* Lighthouse-night.jpg */; };
 		FAA6E6151BE7EEEF000ADB8A /* Lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAA6E6141BE7EEEF000ADB8A /* Lighthouse.jpg */; };
+		FAA6E6181BE80D16000ADB8A /* ZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6E6171BE80D16000ADB8A /* ZoomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		FAA6E6101BE7EE9B000ADB8A /* Lighthouse-in-Field.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Lighthouse-in-Field.jpg"; sourceTree = "<group>"; };
 		FAA6E6121BE7EEC0000ADB8A /* Lighthouse-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Lighthouse-night.jpg"; sourceTree = "<group>"; };
 		FAA6E6141BE7EEEF000ADB8A /* Lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Lighthouse.jpg; sourceTree = "<group>"; };
+		FAA6E6161BE80D16000ADB8A /* ZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomViewController.h; sourceTree = "<group>"; };
+		FAA6E6171BE80D16000ADB8A /* ZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +112,11 @@
 			children = (
 				FAA6E5E01BE7ECC0000ADB8A /* AppDelegate.h */,
 				FAA6E5E11BE7ECC0000ADB8A /* AppDelegate.m */,
+				FAA6E5E61BE7ECC0000ADB8A /* Main.storyboard */,
 				FAA6E5E31BE7ECC0000ADB8A /* ViewController.h */,
 				FAA6E5E41BE7ECC0000ADB8A /* ViewController.m */,
-				FAA6E5E61BE7ECC0000ADB8A /* Main.storyboard */,
+				FAA6E6161BE80D16000ADB8A /* ZoomViewController.h */,
+				FAA6E6171BE80D16000ADB8A /* ZoomViewController.m */,
 				FAA6E5DD1BE7ECC0000ADB8A /* Supporting Files */,
 			);
 			path = ScrollViewImageGallerys;
@@ -285,6 +290,7 @@
 				FAA6E5E51BE7ECC0000ADB8A /* ViewController.m in Sources */,
 				FAA6E5E21BE7ECC0000ADB8A /* AppDelegate.m in Sources */,
 				FAA6E5DF1BE7ECC0000ADB8A /* main.m in Sources */,
+				FAA6E6181BE80D16000ADB8A /* ZoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
