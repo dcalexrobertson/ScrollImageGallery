@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q5o-k2-Zer">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6ix-bD-5eP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -20,9 +20,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="evZ-wR-L0J">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lighthouse" translatesAutoresizingMaskIntoConstraints="NO" id="qGd-re-TVY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lighthouse-night.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qGd-re-TVY">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="1800"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="900" id="Mdm-Z0-JXH"/>
+                                            <constraint firstAttribute="height" constant="1800" id="wEy-8p-XMh"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <animations/>
@@ -53,7 +57,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv5-NP-5xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="-279"/>
+            <point key="canvasLocation" x="-666" y="-504"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yHC-sE-4Ht">
+            <objects>
+                <navigationController id="6ix-bD-5eP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kmy-G2-wAz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tqs-6Q-Opx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5Q-yM-WqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2084" y="-504"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -70,6 +91,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WB1-4h-e0u">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="x15-fA-7Nr" appends="YES" id="VPq-LO-SUb"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <animations/>
@@ -81,16 +106,23 @@
                             <constraint firstAttribute="trailing" secondItem="WB1-4h-e0u" secondAttribute="trailing" id="fo5-Er-1qE"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9ZC-Au-ZRM"/>
                     <connections>
                         <outlet property="scrollView" destination="WB1-4h-e0u" id="ikc-yU-7iF"/>
+                        <segue destination="q5o-k2-Zer" kind="show" identifier="zoomDetail" id="pRv-HV-dmp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="x15-fA-7Nr">
+                    <connections>
+                        <action selector="tapForSegue:" destination="BYZ-38-t0r" id="z60-8m-Jr0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="305" y="389"/>
+            <point key="canvasLocation" x="-1377" y="-504"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Lighthouse" width="900" height="1800"/>
+        <image name="Lighthouse-night.jpg" width="1600" height="1200"/>
     </resources>
 </document>

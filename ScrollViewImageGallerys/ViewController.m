@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ZoomViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) NSArray *images;
 @end
 
 @implementation ViewController
@@ -19,20 +21,46 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.scrollView.delegate = self;
     
-    UIImageView *image1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse-in-Field.jpg"]];
-    UIImageView *image2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse-night.jpg"]];
-    UIImageView *image3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse.jpg"]];
+    UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse-in-Field.jpg"]];
+    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse-night.jpg"]];
+    UIImageView *imageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse.jpg"]];
     
-    image1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    image2.frame = CGRectMake(image1.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
-    image3.frame = CGRectMake(image1.frame.size.width + image2.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.images = @[imageView1, imageView2, imageView3];
     
-    [self.scrollView addSubview:image1];
-    [self.scrollView addSubview:image2];
-    [self.scrollView addSubview:image3];
+    imageView1.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    imageView2.frame = CGRectMake(imageView1.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
+    imageView3.frame = CGRectMake(imageView1.frame.size.width + imageView2.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
+
+    [self.scrollView addSubview:imageView1];
+    [self.scrollView addSubview:imageView2];
+    [self.scrollView addSubview:imageView3];
     
-    self.scrollView.contentSize = CGSizeMake(image1.frame.size.width + image2.frame.size.width + image3.frame.size.width, self.view.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(imageView1.frame.size.width + imageView2.frame.size.width + imageView3.frame.size.width, self.view.frame.size.height);
 }
+
+- (IBAction)tapForSegue:(UITapGestureRecognizer *)sender {
+    
+    
+    CGPoint tapLocation = [sender locationInView:self.scrollView];
+    // divide view
+    int index = tapLocation.x / self.view.frame.size.width;
+    
+    UIImageView *imageView = self.images[index];
+    UIImage *image = imageView.image;
+    
+    [self performSegueWithIdentifier:@"zoomDetail" sender:image];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    ZoomViewController *zvc = [segue destinationViewController];
+    
+    zvc.currentImage = sender;
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

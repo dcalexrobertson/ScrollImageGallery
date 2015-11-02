@@ -9,8 +9,10 @@
 #import "ZoomViewController.h"
 
 @interface ZoomViewController ()
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewZoom;
 @property (weak, nonatomic) IBOutlet UIImageView *imageZoom;
+
 @end
 
 @implementation ZoomViewController
@@ -18,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.imageZoom.image = self.currentImage;
 }
 
 - (void)didReceiveMemoryWarning {
