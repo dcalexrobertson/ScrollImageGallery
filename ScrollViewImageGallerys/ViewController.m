@@ -12,6 +12,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) NSArray *images;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @end
 
 @implementation ViewController
@@ -36,6 +37,8 @@
     [self.scrollView addSubview:imageView3];
     
     self.scrollView.contentSize = CGSizeMake(imageView1.frame.size.width + imageView2.frame.size.width + imageView3.frame.size.width, self.view.frame.size.height);
+    
+    
 }
 
 - (IBAction)tapForSegue:(UITapGestureRecognizer *)sender {
@@ -54,13 +57,17 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     ZoomViewController *zvc = [segue destinationViewController];
     
     zvc.currentImage = sender;
-    
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"%f/%f = %d",self.scrollView.contentOffset.x, self.scrollView.frame.size.width, (int)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width));
+    self.pageControl.currentPage = (int)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

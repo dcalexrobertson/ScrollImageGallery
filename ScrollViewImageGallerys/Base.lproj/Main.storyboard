@@ -96,6 +96,14 @@
                                     <outletCollection property="gestureRecognizers" destination="x15-fA-7Nr" appends="YES" id="VPq-LO-SUb"/>
                                 </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ive-dV-jtl">
+                                <rect key="frame" x="280" y="563" width="39" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="8DI-cz-Jg3"/>
+                                    <constraint firstAttribute="width" constant="39" id="p1K-gH-HI1"/>
+                                </constraints>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -103,11 +111,14 @@
                             <constraint firstItem="WB1-4h-e0u" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="69u-eq-wAx"/>
                             <constraint firstItem="WB1-4h-e0u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FLG-1G-jdO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WB1-4h-e0u" secondAttribute="bottom" id="Ubl-IA-vHv"/>
+                            <constraint firstItem="ive-dV-jtl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cRO-P8-4US"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ive-dV-jtl" secondAttribute="bottom" id="dIN-TJ-Cfi"/>
                             <constraint firstAttribute="trailing" secondItem="WB1-4h-e0u" secondAttribute="trailing" id="fo5-Er-1qE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9ZC-Au-ZRM"/>
                     <connections>
+                        <outlet property="pageControl" destination="ive-dV-jtl" id="Rb6-Yg-moi"/>
                         <outlet property="scrollView" destination="WB1-4h-e0u" id="ikc-yU-7iF"/>
                         <segue destination="q5o-k2-Zer" kind="show" identifier="zoomDetail" id="pRv-HV-dmp"/>
                     </connections>
